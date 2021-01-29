@@ -1,0 +1,11 @@
+default:
+  image: openjdk:11-jdk
+
+build-stage:
+  stage: build
+  script:
+    - ./gradlew assemble
+  artifacts:
+    when: always
+    paths:
+      - build/libs/*.jar
