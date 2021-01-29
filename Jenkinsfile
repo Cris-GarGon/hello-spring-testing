@@ -1,19 +1,31 @@
 pipeline {
     agent any
-    options {
-        ansiColor('xterm')
+    tools {
+        jdk 'OpenJDK-15.0.2'
     }
+
     stages {
-        stage('Build') {
+        stage('Setup') {
             steps {
-                sh 'docker-compose build'
+                sh 'echo "JAVA_HOME=${JAVA_HOME}"'
             }
         }
         
-        stage('Deploy') {
+        stage('Build') {
             steps {
-                sh 'docker-compose up -d'
+                withGradle {
+                    sh './gradlew assemble'
+                }
+            }
+        }
+        
+        stage('Test'){
+            steps{
+                withGradle {
+                    sh './gradlew test'
+                }
             }
         }
     }
+    
 }
