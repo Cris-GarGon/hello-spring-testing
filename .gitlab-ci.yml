@@ -1,6 +1,10 @@
 default:
   image: openjdk:11-jdk
 
+stages:
+  - test
+  - build 
+
 test-stage:
   stage: test
   script:
