@@ -1,9 +1,9 @@
 #!usr/bin/env groovy
 pipeline {
     agent any
-    /*options {
+    options {
         ansiColor('xterm')
-    }*/
+    }
     stages {
         stage('Build') {
             steps {
