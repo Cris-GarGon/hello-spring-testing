@@ -22,8 +22,12 @@ pipeline {
             }
             post {
                 always {
-                    jacoco(execPattern: 'target/jacoco.exec')
                     junit 'build/test-results/test/TEST-*.xml'
+                    jacoco( 
+                        execPattern: 'target/jacoco.exec',
+                        classPattern: 'target/classes',
+                        sourcePattern: 'src/main/java',
+                        exclusionPattern: 'src/test*')
                 }
             }
         }
