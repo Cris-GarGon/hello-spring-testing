@@ -24,6 +24,7 @@ pipeline {
                 always {
                     junit 'build/test-results/test/TEST-*.xml'
                     jacoco(execPattern: 'build/jacoco/*.exec')
+                    pitmutation mutationStatsFile: 'build/reports/**/mutations.xml'
                 }
             }
         }
