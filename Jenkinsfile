@@ -18,7 +18,7 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew clean test'
-                    sh './gradlew clean pintest'
+                    sh './gradlew clean pitest'
                 }
             }
             post {
