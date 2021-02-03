@@ -23,9 +23,9 @@ test {
 }
 
 pitest {
-    targetClasses = ["${project.group}.*"] //by default "${project.group}.*"
-    junit5PluginVersion = '0.12'
-    threads = 4
-    outputFormats = ['XML', 'HTML']
-    timestampedReports = false
+	targetClasses = ["${project.group}.*"] //by default "${project.group}.*"
+	junit5PluginVersion = '0.12'
+	threads = 4
+	outputFormats = ['XML', 'HTML']
+	timestampedReports = false
 }
