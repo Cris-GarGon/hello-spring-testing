@@ -23,8 +23,6 @@ pipeline {
             post {
                 always {
                     junit 'build/test-results/test/TEST-*.xml'
-                    
-                    )
 
                 }
             }
@@ -41,5 +39,6 @@ pipeline {
                         tool: pmdParser(pattern: 'build/reports/pmd/*.xml')
                 }
             }
+        }
     }
 }
