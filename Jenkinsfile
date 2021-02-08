@@ -19,11 +19,9 @@ pipeline {
                 withGradle {
                     sh './gradlew clean test'
                     
-                    configFileProvider([configFile(
-                    fileId:'SonarQube-gradle.properties',
-                    targetLocation: 'gradle.properties')]) {
-                        sh './gradlew sonarqube'
-                    }
+                    configFileProvider([configFile(fileId: 'e9e5e453-9880-408a-98b8-b3c0a2346816', targetLocation: 'gradle.properties')]) {
+    sh './gradlew sonarqube'
+}
 
                 }
             }
