@@ -18,13 +18,26 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew clean test'
-                    sh './gradlew clean pitest'
                 }
             }
             post {
                 always {
                     junit 'build/test-results/test/TEST-*.xml'
-                    pitmutation mutationStatsFile: 'build/reports/pitest/**/*.xml'
+
+                }
+            }
+        }
+
+        stage('QA') {
+            steps {
+                sh './gradlew check'
+            }
+            post {
+                always {
+                    recordIssues(
+                        enabledForFailure: true, 
+                        tool: pmdParser(pattern: 'build/reports/pmd/*.xml')
+                    )
                 }
             }
         }
