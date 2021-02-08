@@ -18,6 +18,13 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew clean test'
+                    
+                    configFileProvider([configFile(
+                    fileId:'hello-spring-testing-gradle.properties',
+                    targetlocation: 'gradle.properties')]) {
+                        sh './gradlew sonarqube'
+                    }
+
                 }
             }
             post {
