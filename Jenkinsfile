@@ -20,7 +20,7 @@ pipeline {
                     sh './gradlew clean test'
                     
                     configFileProvider([configFile(
-                    fileId:'hello-spring-testing-gradle.properties',
+                    fileId:'e9e5e453-9880-408a-98b8-b3c0a2346816',
                     targetlocation: 'gradle.properties')]) {
                         sh './gradlew sonarqube'
                     }
