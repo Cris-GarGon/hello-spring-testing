@@ -36,7 +36,7 @@ pipeline {
                 always {
                     recordIssues(
                         enabledForFailure: true, 
-                        tool: pmdParser(pattern: 'build/reports/pmd/*.xml')
+                        tool: spotBugs(pattern: 'build/reports/spotbugs/*.xml')
                     )
                 }
             }
