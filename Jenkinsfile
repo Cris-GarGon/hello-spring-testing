@@ -28,7 +28,7 @@ pipeline {
                     //pitmutation mutationStatsFile: 'build/reports/pitest/**/*.xml'
                     recordIssues(
                         enabledForFailure: true, 
-                        tool: pmd(pattern: 'build/reports/pmd/*.xml')
+                        tool: pmdParser(pattern: 'build/reports/pmd/*.xml')
                     )
 
                 }
