@@ -18,7 +18,6 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew clean test'
-                    sh './gradlew check'
                 }
             }
             post {
@@ -33,7 +32,7 @@ pipeline {
 
         stage('QA') {
             steps {
-
+                sh './gradlew check'
             }
             post {
                 always {
