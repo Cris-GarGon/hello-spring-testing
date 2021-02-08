@@ -32,7 +32,5 @@ pitest {
 }
 
 pmd {
-	consoleOutput = true
 	ignoreFailures = true
-	//ruleSetFiles = files("config/pmd/pmd.xml")
 }
