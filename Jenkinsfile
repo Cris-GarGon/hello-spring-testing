@@ -21,7 +21,7 @@ pipeline {
                     
                     configFileProvider([configFile(
                     fileId:'SonarQube-gradle.properties',
-                    targetlocation: 'gradle.properties')]) {
+                    targetLocation: 'gradle.properties')]) {
                         sh './gradlew sonarqube'
                     }
 
