@@ -36,6 +36,9 @@ pipeline {
         stage('QA') {
             steps {
                 sh './gradlew check'
+
+                withSonarQubeEnv(credentialsID: 'ba6547cc-5244-48a3-b921-0a4361ec46a4', installationName: 'local') { // Will pick the global server     connection you have configured
+      sh './gradlew sonarqube'
             }
             post {
                 always {
