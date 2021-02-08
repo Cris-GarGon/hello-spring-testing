@@ -40,6 +40,7 @@ pipeline {
                 withSonarQubeEnv(credentialsID: 'ba6547cc-5244-48a3-b921-0a4361ec46a4', installationName: 'local') { 
                     sh './gradlew sonarqube'
                 }
+            }
             post {
                 always {
                     recordIssues(
