@@ -43,3 +43,6 @@ spotbugs {
 }
 
 
+dependencyCheck {
+	format = 'XML'
+}
