@@ -49,7 +49,7 @@ pipeline {
             }
             post {
                 always {
-                    dependencyCheckPublisher pattern:'dependency-check-report.xml'
+                    dependencyCheckPublisher pattern:'build/reports/dependency-check-report.xml'
                 }
             }
         }
