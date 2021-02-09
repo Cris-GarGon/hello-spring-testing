@@ -45,7 +45,7 @@ pipeline {
         stage('Segurity') {
             steps {
                 sh './gradlew dependencyCheckUpdate'
-                sh './gradlew dependencyCheckAnal'
+                sh './gradlew dependencyCheckAnalyze'
             }
             post {
                 always {
