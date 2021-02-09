@@ -41,5 +41,17 @@ pipeline {
                 }
             }
         }
+
+        stage('Segurity') {
+            steps {
+                sh './gradlew dependencyCheckUpdate'
+                sh './gradlew dependencyCheckAnalyze'
+            }
+            post {
+                always {
+                    dependencyCheckPublisher pattern:'build/reports/dependency-check-report.xml'
+                }
+            }
+        }
     }
 }
