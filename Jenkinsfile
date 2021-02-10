@@ -10,6 +10,12 @@ pipeline {
             post {
                success{
                   archiveArtifacts 'build/libs/*.jar'
+
+                  withCredentials([string(
+                        credentialsId: 'gitLabPrivateToken',
+                        variable: 'TOKEN')]) {
+                            sh './gradlew publish'
+                    } 
                }   
             }
         }
@@ -50,18 +56,6 @@ pipeline {
             post {
                 always {
                     dependencyCheckPublisher pattern:'build/reports/dependency-check-report.xml'
-                }
-            }
-        }
-
-        stage('Publish') {
-            steps{
-                withGradle {
-                    withCredentials([string(
-                        credentialsId: 'gitLabPrivateToken',
-                        variable: 'TOKEN')]) {
-                            sh './gradlew publish'
-                    }   
                 }
             }
         }
