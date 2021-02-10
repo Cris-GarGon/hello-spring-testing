@@ -11,12 +11,12 @@ pipeline {
                success{
                   archiveArtifacts 'build/libs/*.jar'
 
-                  withCredentials([usernamePassword(
-                      credentialsId: 'apacheArchivaCredentials',
-                      passwordVariable: 'PASSWORD',
-                      usernameVariable: 'USER')]) { {
+                  withCredentials([string(
+                        credentialsId: 'gitLabPrivateToken',
+                        variable: 'TOKEN')]) {
                             sh './gradlew publish'
                     } 
+ 
                }   
             }
         }
