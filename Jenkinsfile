@@ -13,8 +13,8 @@ pipeline {
 
                   withCredentials([usernamePassword(
                       credentialsId: 'apacheArchivaCredentials',
-                      passwordVariable: 'PASSWORD',
-                      usernameVariable: 'USERNAME')]) {
+                      passwordVariable: 'PASS',
+                      usernameVariable: 'USER')]) {
                             sh './gradlew publish'
                     } 
                }   
