@@ -61,8 +61,8 @@ publishing {
             maven {
                 url "http://localhost:9082/repository/snapshots/"
                 credentials {
-                    username 'admin'
-                    password 'sinensia0'
+                    username 'USERNAME'
+                    password 'PASSWORD'
                 }
             }
 	}
